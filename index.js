@@ -221,6 +221,7 @@ const listword = [
   'minecraft',
   'wither',
   'magmacube',
+  'enderman'
 ]
 
 const reslist = ["gg","ez","nice","lol","lmao","wkwk","asik","mantap","gaskeun","ngantuk","kocak","hebat","op","legend","cringe","bruh","serem","cakep","gacor","santuy","pusing","panik","tepar","auto","gila","kasian","susah","rekt","parah","capek","ngide","langsung","lagi","coba","yeay","hore","salah","fix","ampun","ngantuk","tidur","nt","waw","woah","mirip","bener","tipis","gampang","sulit","serius","njir","pede","nabrak","duar","awas","ayo","yuhu","yoi","horee","yaelah","lah","gaje","sedih","kece","ceria","mager","langsungin","tapiii","oke","buset","pecah","meledak","gacorrr","cepat","lambat","nyala","gelap","terang","muncul","ilang","lompat","dor","zebra","nopal","singa","panda","zombie","slime","muter","jauh","deket","healing","skill","ult","meta","update","baru","lama","nerf","buff"]
