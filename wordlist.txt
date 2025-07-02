@@ -1,2 +1,4 @@
 piglinbrute
 chicken
+dolphin
+minecraft

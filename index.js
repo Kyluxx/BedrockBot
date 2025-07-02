@@ -169,6 +169,8 @@ client.on('kicked', r => console.log('Kicked:', r))
 const fs = require('fs')
 const path = require('path')
 
+const inputFile = path.join(__dirname, 'input.txt')
+
 function recordGuessedWord(msg) {
   // cari pola "Kata yang benar: <word>"
   const m = msg.match(/Kata yang benar:\s*([^\s!]+)/i)
@@ -209,78 +211,13 @@ const listword = [
   'fhmiwhyuda',
   'axolotl',
   'piglinbrute',
+  'chicken',
+  'dolphin',
+  'minecraft',
 ]
-const reslist = [
-  'aku',
-  'kamu',
-  'dia',
-  'saya',
-  'kita',
-  'mereka',
-  'ini',
-  'itu',
-  'sini',
-  'sana',
-  'kiri',
-  'kanan',
-  'atas',
-  'bawah',
-  'depan',
-  'belakang',
-  'jauh',
-  'dekat',
-  'besar',
-  'kecil',
-  'lama',
-  'baru',
-  'kuning',
-  'merah',
-  'hijau',
-  'biru',
-  'putih',
-  'hitam',
-  'cokelat',
-  'abu',
-  'perak',
-  'emas',
-  'tembaga',
-  'kuningan',
-  'besi',
-  'baja',
-  'kayu',
-  'batu',
-  'tanah',
-  'air',
-  'api',
-  'udara',
-  'awan',
-  'matahari',
-  'bulan',
-  'bintang',
-  'hujan',
-  'salju',
-  'angin',
-  'awan',
-  'petir',
-  'kilat',
-  'guntur',
-  'awan',
-  'sungai',
-  'danau',
-  'laut',
-  'gunung',
-  'lembah',
-  'hutan',
-  'padang',
-  'gurun',
-  'sawah',
-  'kebun',
-  'taman',
-  'kota',
-  'desa',
-  'negeri',
-  'dunia'
-]
+
+const reslist = ["gg","ez","nice","lol","lmao","wkwk","asik","mantap","gaskeun","ngantuk","kocak","hebat","op","legend","cringe","bruh","serem","cakep","gacor","santuy","pusing","panik","tepar","auto","gila","kasian","susah","rekt","parah","capek","ngide","langsung","lagi","coba","yeay","hore","salah","fix","ampun","ngantuk","tidur","nt","waw","woah","mirip","bener","tipis","gampang","sulit","serius","njir","pede","nabrak","duar","awas","ayo","yuhu","yoi","horee","yaelah","lah","gaje","sedih","kece","ceria","mager","langsungin","tapiii","oke","buset","pecah","meledak","gacorrr","cepat","lambat","nyala","gelap","terang","muncul","ilang","lompat","dor","zebra","nopal","singa","panda","zombie","slime","muter","jauh","deket","healing","skill","ult","meta","update","baru","lama","nerf","buff"]
+
 
 const anagramMap = {}
 for (const w of listword) {
@@ -340,3 +277,24 @@ client.on('text', packet => {
     }
   }
 })
+
+setInterval(() => {
+  if (!fs.existsSync(inputFile)) return
+
+  const line = fs.readFileSync(inputFile, 'utf8').trim()
+  if (line) {
+    // kirim ke chat
+    client.queue('text', {
+      type: 'chat',
+      needs_translation: false,
+      source_name: client.username,
+      message: line,
+      filtered_message: line,
+      parameters: [],
+      xuid: '',
+      platform_chat_id: ''
+    })
+    console.log('Sent from file:', line)
+    fs.writeFileSync(inputFile, '') // clear after reading
+  }
+}, 1000)
