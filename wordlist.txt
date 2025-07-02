@@ -2,3 +2,5 @@ piglinbrute
 chicken
 dolphin
 minecraft
+zoglin
+prowcloud
