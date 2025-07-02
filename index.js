@@ -297,4 +297,4 @@ setInterval(() => {
     console.log('Sent from file:', line)
     fs.writeFileSync(inputFile, '') // clear after reading
   }
-}, 1000)
+}, 10000)
