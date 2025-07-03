@@ -159,7 +159,7 @@ const client = bedrock.createClient({
   version: '1.21.90',
   username: 'EnrickoED',
   offline: false,
-  auth: fs.existsSync('./auth.json') ? require('./auth.json') : undefined
+  auth: fs.existsSync('./auth.json') ? require('./auth.json') : undefined,
 })
 
 client.on('start_game', () => {
