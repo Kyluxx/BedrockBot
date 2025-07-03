@@ -159,16 +159,17 @@ const client = bedrock.createClient({
   version: '1.21.90',
   username: 'EnrickoED',
   offline: false,
-  auth: fs.existsSync('./auth.json') ? require('./auth.json') : undefined,
+//7 auth: "msa",
+//  auth: fs.existsSync('./auth.json') ? require('./auth.json') : undefined
 })
 
 client.on('start_game', () => {
   console.log('Connected!')
 })
 
-client.on('session', (auth) => {
-  fs.writeFileSync('./auth.json', JSON.stringify(auth))
-})
+//client.on('session', (auth) => {
+//  fs.writeFileSync('./auth.json', JSON.stringify(auth))
+//})
 
 client.on('error', e => console.error('Error:', e))
 client.on('kicked', r => console.log('Kicked:', r))
