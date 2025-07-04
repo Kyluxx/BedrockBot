@@ -238,7 +238,11 @@ const listword = [
   'zombie',
   'cat',
   'warden',
-  'vindicator'
+  'vindicator',
+  'prownetwork',
+  'drowned',
+  'slime',
+  'turtle'
 ];
 
 
@@ -273,6 +277,7 @@ client.on('text', packet => {
       const key = scrambled.split('').sort().join('')
       const guess = anagramMap[key]
       if (guess) {
+	setTimeout(() => {
         client.queue('text', {
           type: 'chat',
           needs_translation: false,
@@ -284,7 +289,7 @@ client.on('text', packet => {
           platform_chat_id: ''
         })
         console.log('Guessed:', guess)
-        if (Math.random() < 0.5) {
+        if (Math.random() < 0.2) {
         const response = reslist[Math.floor(Math.random() * reslist.length)]
         client.queue('text', {
           type: 'chat',
@@ -297,7 +302,7 @@ client.on('text', packet => {
           platform_chat_id: ''
         })
         console.log('Sent extra:', response)
-      }
+      	}}, 1000)
       }
       awaiting = false
     }
@@ -323,7 +328,7 @@ setInterval(() => {
     console.log('Sent from file:', line)
     fs.writeFileSync(inputFile, '') // clear after reading
   }
-}, 10000)
+}, 5000)
 
 setTimeout(() => {
   client.queue('text', {
@@ -336,4 +341,17 @@ setTimeout(() => {
     xuid: '',
     platform_chat_id: ''
   })
-}, 5000)
+}, 10000)
+
+setTimeout(() => {
+  client.queue('text', {
+    type: 'chat',
+    needs_translation: false,
+    source_name: client.username,
+    message: '/warp afk',
+    filtered_message: '/warp afk',
+    parameters: [],
+    xuid: '',
+    platform_chat_id: ''
+  })
+}, 20000)
